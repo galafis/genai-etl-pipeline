@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  pipeline:
+    build: .
+    container_name: genai-etl-pipeline
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
